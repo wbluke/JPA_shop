@@ -1,19 +1,19 @@
 <template>
 	<v-app>
 		<header-bar></header-bar>
-		<main-contents></main-contents>
+		<contents></contents>
 	</v-app>
 </template>
 
 <script>
     import HeaderBar from './components/HeaderBar';
-    import MainContents from './components/MainContents';
+    import Contents from './components/Contents';
 
     export default {
         name: 'App',
         components: {
             HeaderBar,
-            MainContents
+            Contents
         },
         data: () => ({
             //

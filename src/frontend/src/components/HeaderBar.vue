@@ -1,9 +1,5 @@
 <template>
-	<v-card
-					color="grey lighten-4"
-					flat
-					tile
-	>
+	<v-card color="grey lighten-4" flat tile>
 		<v-toolbar>
 			<v-app-bar-nav-icon @click.stop="toggleNavigationDrawer"></v-app-bar-nav-icon>
 			
