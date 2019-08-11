@@ -1,6 +1,6 @@
 <template>
 	<div class="newOrder">
-		<h1>new order</h1>
+		<h1>상품 주문</h1>
 	</div>
 </template>
 

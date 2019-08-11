@@ -1,6 +1,6 @@
 <template>
 	<div class="orders">
-		<h1>orders</h1>
+		<h1>주문 내역</h1>
 	
 	</div>
 </template>

@@ -1,6 +1,6 @@
 <template>
 	<div class="members">
-		<h1>members</h1>
+		<h1>회원 목록</h1>
 	
 	</div>
 </template>

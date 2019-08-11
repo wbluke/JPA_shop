@@ -1,6 +1,6 @@
 <template>
 	<div class="newItem">
-		<h1>new item</h1>
+		<h1>상품 등록</h1>
 	
 	</div>
 </template>
