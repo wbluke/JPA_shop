@@ -6,6 +6,10 @@
 			<v-toolbar-title>JPA Shop</v-toolbar-title>
 			
 			<v-spacer></v-spacer>
+			
+			<v-btn text icon color="light-green" router to="/" exact>
+				<v-icon>home</v-icon>
+			</v-btn>
 		
 		</v-toolbar>
 	</v-card>

@@ -2,6 +2,8 @@
 	<v-app>
 		<header-bar></header-bar>
 		<contents></contents>
+		<v-content>
+		</v-content>
 	</v-app>
 </template>
 
