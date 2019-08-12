@@ -26,7 +26,7 @@
 					<td>{{ order.status }}</td>
 					<td>{{ order.orderDate }}</td>
 					<td>
-						<v-btn fab outlined small icon color="red lighten-2">
+						<v-btn fab small icon color="red lighten-2">
 							<v-icon>clear</v-icon>
 						</v-btn>
 					</td>

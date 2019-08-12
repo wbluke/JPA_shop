@@ -20,7 +20,7 @@
 					<td>{{ item.price }}</td>
 					<td>{{ item.stock }}</td>
 					<td>
-						<v-btn fab outlined small icon color="light-green lighten-2">
+						<v-btn fab small icon color="light-green lighten-2">
 							<v-icon>edit</v-icon>
 						</v-btn>
 					</td>
