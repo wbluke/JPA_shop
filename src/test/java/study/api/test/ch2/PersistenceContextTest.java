@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PersistenceContextTest {
+public class PersistenceContextTest {
     private static EntityManagerFactory emf;
 
     @BeforeAll

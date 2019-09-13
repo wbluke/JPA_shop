@@ -8,9 +8,10 @@ import javax.persistence.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class PersistMethodTest {
-    private static final String TEST_NAME = "test entity";
-    private static final Integer TEST_AGE = 28;
+public class ManagedEntityTest {
+    public static final String TEST_NAME = "test entity";
+    public static final Integer TEST_AGE = 28;
+
     private static EntityManagerFactory emf;
 
     private EntityManager entityManager;
@@ -146,13 +147,51 @@ class PersistMethodTest {
                 .isInstanceOf(TransactionRequiredException.class);
     }
 
+    @Test
+    @DisplayName("JPA는 영속 엔티티의 데이터가 수정되면 감지해서 DB에 반영한다.")
+    void senseChange() {
+        // Given
+        ApiTestEntity apiTestEntity = new ApiTestEntity(TEST_NAME, TEST_AGE);
+        Long id = save(apiTestEntity);
+        String updatedName = "updated name";
+
+        EntityManager entityManager = emf.createEntityManager();
+        EntityManager anotherEntityManager = emf.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        // When
+        transaction.begin();
+
+        ApiTestEntity foundApiTestEntity = entityManager.find(ApiTestEntity.class, id);
+        foundApiTestEntity.setName(updatedName);
+
+        transaction.commit();
+
+        // Then
+        ApiTestEntity updated = anotherEntityManager.find(ApiTestEntity.class, id);
+        assertThat(updated.getName()).isEqualTo(updatedName);
+    }
+
     @AfterEach
     void tearDown() {
         entityManager.close();
+        anotherManager.close();
     }
 
     @AfterAll
     static void tearDownAfterAll() {
         emf.close();
     }
+
+    private Long save(ApiTestEntity apiTestEntity) {
+        EntityManager entityManager = emf.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        transaction.begin();
+        entityManager.persist(apiTestEntity);
+        transaction.commit();
+
+        return apiTestEntity.getId();
+    }
+
 }
