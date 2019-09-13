@@ -3,8 +3,8 @@ spring:
     console:
       enabled: true
   jpa:
-    database: h2
     show-sql: true
+    database: h2
     database-platform: org.hibernate.dialect.H2Dialect
     properties:
       hibernate:
@@ -12,4 +12,7 @@ spring:
     hibernate:
       ddl-auto: create
   datasource:
-    url: jdbc:h2:~/community
+    url: jdbc:h2:~/jpashop
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
