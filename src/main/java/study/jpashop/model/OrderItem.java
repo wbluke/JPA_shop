@@ -17,10 +17,10 @@ public class OrderItem {
     private Long id;
 
     @Column(name = "ITEM_ID")
-    private Long itemId;
+    private Item item;
 
     @Column(name = "ORDER_ID")
-    private Long orderId;
+    private Order order;
 
     private int orderPrice;
     private int count;
