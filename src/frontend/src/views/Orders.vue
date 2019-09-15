@@ -40,21 +40,21 @@
 <script>
     export default {
         name: "Orders",
-		    data() {
+        data() {
             return {
                 orders: [
-		                {
-		                    id:1,
-				                memberName: 'Luke',
-				                orderItem: '토비의 봄',
-				                orderPrice: 50000,
-				                count: 5,
-				                status: 'ORDER',
-				                orderDate: '2019-08-11'
-		                }
+                    {
+                        id: 1,
+                        memberName: 'Luke',
+                        orderItem: '토비의 봄',
+                        orderPrice: 50000,
+                        count: 5,
+                        status: 'ORDER',
+                        orderDate: '2019-08-11'
+                    }
                 ]
             }
-		    }
+        }
     }
 </script>
 
