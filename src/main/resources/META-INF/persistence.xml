@@ -3,7 +3,9 @@
 
     <persistence-unit name="jpabook">
 
-       <class>study.api.test.model.ApiTestEntity</class>
+        <class>study.api.test.model.ApiTestEntity</class>
+        <class>study.api.test.model.Member</class>
+        <class>study.api.test.model.Team</class>
 
         <properties>
             <!-- H2 필수 속성 -->
