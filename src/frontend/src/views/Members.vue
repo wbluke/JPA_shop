@@ -19,7 +19,7 @@
 					<td>{{ member.name }}</td>
 					<td>{{ member.city }}</td>
 					<td>{{ member.street }}</td>
-					<td>{{ member.zipCode }}</td>
+					<td>{{ member.zipcode }}</td>
 				</tr>
 				</tbody>
 			</v-simple-table>
@@ -32,23 +32,16 @@
         name: "Members",
         data() {
             return {
-                members: [
-                    {
-                        id: 1,
-                        name: 'Luke',
-                        city: '서울',
-                        street: '송파',
-                        zipCode: '05705'
-                    },
-                    {
-                        id: 2,
-                        name: 'wb',
-                        city: '강릉',
-                        street: '초당',
-                        zipCode: '12345'
-                    },
-                ]
+                members: []
             }
+        },
+        created() {
+            this.$axios
+                .get('/api/members')
+                .then(res => res.data)
+                .then(data => {
+                    this.members = data;
+                })
         }
     }
 </script>
