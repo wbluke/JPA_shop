@@ -5,16 +5,15 @@
 		<v-flex xs12 sm6 md12 pt-6>
 			<v-row>
 				<v-col cols="12" sm="6" md="4">
-					<v-text-field md4 label="검색" placeholder="회원 이름을 입력하세요" v-model="searchKeyword"
-					              clearable></v-text-field>
+					<v-text-field md4 label="검색" placeholder="회원 이름을 입력하세요" v-model="searchKeyword" clearable>
+					</v-text-field>
 				</v-col>
 				<v-col cols="12" sm="4" md="3">
 					<v-autocomplete v-model="status" label="주문 상태" :items="statusMenu"></v-autocomplete>
 				</v-col>
 				<v-flex my-2>
 					<v-col cols="12" sm="4" md="3">
-						<v-btn v-on:click="submit" fab dark small tile outlined color="light-green lighten-2"
-						       class="mr-2">
+						<v-btn fab dark small tile outlined color="light-green lighten-2" class="mr-2">
 							검색
 						</v-btn>
 					</v-col>
