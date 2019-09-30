@@ -1,7 +1,6 @@
 package study.jpashop.model;
 
 import lombok.Getter;
-import lombok.Setter;
 import study.jpashop.model.item.Item;
 
 import javax.persistence.*;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Setter
 @Entity
 public class Category extends BaseEntity {
 
@@ -31,5 +29,9 @@ public class Category extends BaseEntity {
     public void addChildCategory(Category child) {
         this.child.add(child);
         child.setParent(this);
+    }
+
+    private void setParent(final Category category) {
+        this.parent = category;
     }
 }

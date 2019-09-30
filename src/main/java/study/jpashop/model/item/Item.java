@@ -1,7 +1,6 @@
 package study.jpashop.model.item;
 
 import lombok.Getter;
-import lombok.Setter;
 import study.jpashop.exception.NotEnoughStockException;
 import study.jpashop.model.BaseEntity;
 import study.jpashop.model.Category;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Setter
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "DTYPE")

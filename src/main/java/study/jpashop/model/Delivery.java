@@ -1,7 +1,6 @@
 package study.jpashop.model;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +8,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 
 @Getter
-@Setter
 @Entity
 public class Delivery extends BaseEntity {
 
@@ -26,5 +24,9 @@ public class Delivery extends BaseEntity {
 
     public Delivery(final Address address) {
         this.address = address;
+    }
+
+    public void setOrder(final Order order) {
+        this.order = order;
     }
 }

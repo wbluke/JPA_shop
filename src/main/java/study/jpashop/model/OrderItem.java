@@ -1,13 +1,11 @@
 package study.jpashop.model;
 
 import lombok.Getter;
-import lombok.Setter;
 import study.jpashop.model.item.Item;
 
 import javax.persistence.*;
 
 @Getter
-@Setter
 @Entity
 @Table(name = "ORDER_ITEM")
 public class OrderItem extends BaseEntity {
@@ -25,12 +23,16 @@ public class OrderItem extends BaseEntity {
 
     public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
         OrderItem orderItem = new OrderItem();
-        orderItem.setItem(item);
-        orderItem.setOrderPrice(orderPrice);
-        orderItem.setCount(count);
+        orderItem.update(item, orderPrice, count);
 
         item.removeStock(count);
         return orderItem;
+    }
+
+    public void update(Item item, int orderPrice, int count) {
+        this.item = item;
+        this.orderPrice = orderPrice;
+        this.count = count;
     }
 
     public void cancel() {
@@ -39,5 +41,9 @@ public class OrderItem extends BaseEntity {
 
     public int getTotalPrice() {
         return orderPrice * count;
+    }
+
+    public void setOrder(final Order order) {
+        this.order = order;
     }
 }
