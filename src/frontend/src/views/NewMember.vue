@@ -24,7 +24,15 @@
 
 <script>
     export default {
-        name: "NewMember"
+        name: "NewMember",
+        data() {
+            return {
+                name: '',
+                city: '',
+                street: '',
+                zipcode: '',
+            }
+        },
     }
 </script>
 

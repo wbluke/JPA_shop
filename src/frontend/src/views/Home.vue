@@ -7,7 +7,7 @@
 				<v-layout>
 					<v-flex md4>
 						<v-img class="white--text" height="350px"
-							src="http://bimage.interpark.com/goods_image/5/9/5/3/240925953g.jpg" contain>
+						       src="http://bimage.interpark.com/goods_image/5/9/5/3/240925953g.jpg" contain>
 						</v-img>
 					</v-flex>
 					<v-flex md8>

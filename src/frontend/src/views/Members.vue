@@ -3,7 +3,7 @@
 		<h1>회원 목록</h1>
 		
 		<v-flex xs12 sm6 md12 pt-6>
-			<v-simple-table height="300">
+			<v-simple-table>
 				<thead>
 				<tr>
 					<th class="text-left">회원 번호</th>
@@ -18,7 +18,7 @@
 					<td>{{ member.id }}</td>
 					<td>{{ member.name }}</td>
 					<td>{{ member.city }}</td>
-					<td>{{ member.address }}</td>
+					<td>{{ member.street }}</td>
 					<td>{{ member.zipCode }}</td>
 				</tr>
 				</tbody>
@@ -37,14 +37,14 @@
                         id: 1,
                         name: 'Luke',
                         city: '서울',
-                        address: '송파',
+                        street: '송파',
                         zipCode: '05705'
                     },
                     {
                         id: 2,
                         name: 'wb',
                         city: '강릉',
-                        address: '초당',
+                        street: '초당',
                         zipCode: '12345'
                     },
                 ]
