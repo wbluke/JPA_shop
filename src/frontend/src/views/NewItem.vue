@@ -23,7 +23,16 @@
 
 <script>
     export default {
-        name: "NewItem"
+        name: "NewItem",
+        data() {
+            return {
+                name: '',
+                price: '',
+                stockQuantity: '',
+                author: '',
+                isbn: '',
+            }
+        }
     }
 </script>
 

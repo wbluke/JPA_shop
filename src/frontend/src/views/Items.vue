@@ -3,7 +3,7 @@
 		<h1>상품 목록</h1>
 		
 		<v-flex xs12 sm6 md12 pt-6>
-			<v-simple-table height="300">
+			<v-simple-table>
 				<thead>
 				<tr>
 					<th class="text-left">상품 번호</th>
@@ -18,7 +18,7 @@
 					<td>{{ item.id }}</td>
 					<td>{{ item.name }}</td>
 					<td>{{ item.price }}</td>
-					<td>{{ item.stock }}</td>
+					<td>{{ item.stockQuantity }}</td>
 					<td>
 						<v-btn fab small icon color="light-green lighten-2">
 							<v-icon>edit</v-icon>
@@ -41,13 +41,13 @@
                         id: 1,
                         name: '토비의 봄',
                         price: 50000,
-                        stock: 5
+                        stockQuantity: 5
                     },
                     {
                         id: 2,
                         name: '자바 ORM 표준 JPA 프로그래밍',
                         price: 43000,
-                        stock: 20
+                        stockQuantity: 20
                     }
                 ]
             }

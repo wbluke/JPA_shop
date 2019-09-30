@@ -5,6 +5,7 @@ import Home from './views/Home';
 import NewMember from './views/NewMember';
 import Members from './views/Members';
 import NewItem from './views/NewItem';
+import EditItem from './views/EditItem';
 import Items from './views/Items';
 import NewOrder from './views/NewOrder';
 import Orders from './views/Orders';
@@ -34,6 +35,11 @@ export default new Router({
             path: '/items/new',
             name: 'newItem',
             component: NewItem
+        },
+        {
+            path: '/items/:item_id/edit',
+            name: 'editItem',
+            component: EditItem
         },
         {
             path: '/items',
