@@ -1,5 +1,5 @@
 <template>
-	<div class="text-center">
+	<div class="text-center my-3">
 		<v-pagination @input="paginate" v-model="page" :length="length" :total-visible="totalVisible"></v-pagination>
 	</div>
 </template>
@@ -19,7 +19,7 @@
             },
             totalVisible: {
                 type: Number,
-                default: 7
+                default: 11
             }
         },
         methods: {

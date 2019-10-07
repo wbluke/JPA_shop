@@ -32,6 +32,20 @@
                 item: '',
                 count: '',
             }
+        },
+        methods: {
+            submit: function () {
+
+            },
+            findMemberIdByName: function (name) {
+                return this.members.find(member => member.name === name).id;
+            },
+            findItemIdByName: function (name) {
+                return this.items.find(item => item.name === name).id;
+            }
+        },
+        created() {
+
         }
     }
 </script>

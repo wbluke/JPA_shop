@@ -61,18 +61,22 @@
                 searchKeyword: '',
                 statusMenu: ['주문', '취소'],
                 status: '',
-                orders: [
-                    {
-                        id: 1,
-                        memberName: 'Luke',
-                        orderItem: '토비의 봄',
-                        orderPrice: 50000,
-                        count: 5,
-                        status: 'ORDER',
-                        simpleOrderDate: '2019-08-11'
-                    }
-                ]
+                orders: []
             }
+        },
+        methods: {
+            submit: function () {
+
+            },
+            getOrderStatus: function (orderStatus) {
+                if (this.statusMenu[0] === orderStatus) {
+                    return 'ORDER';
+                }
+                return 'CANCEL';
+            }
+        },
+        created() {
+
         }
     }
 </script>

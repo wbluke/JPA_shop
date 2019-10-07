@@ -20,7 +20,7 @@
 					<td>{{ item.price }}</td>
 					<td>{{ item.stockQuantity }}</td>
 					<td>
-						<v-btn fab small icon color="light-green lighten-2">
+						<v-btn @click="onEdit(item.id)" fab small icon color="light-green lighten-2">
 							<v-icon>edit</v-icon>
 						</v-btn>
 					</td>
@@ -28,29 +28,50 @@
 				</tbody>
 			</v-simple-table>
 		</v-flex>
+		<Pagination :length="pageCount" @paginate="getPage"></Pagination>
 	</div>
 </template>
 
 <script>
+    import Pagination from "@/components/Pagination";
+
+    const LIMIT = 3
     export default {
         name: "Items",
+        components: {
+            Pagination
+        },
         data() {
             return {
-                items: [
-                    {
-                        id: 1,
-                        name: '토비의 봄',
-                        price: 50000,
-                        stockQuantity: 5
-                    },
-                    {
-                        id: 2,
-                        name: '자바 ORM 표준 JPA 프로그래밍',
-                        price: 43000,
-                        stockQuantity: 20
-                    }
-                ]
+                items: [],
+                totalCount: 0
             }
+        },
+        methods: {
+            async getPage(page = 1) {
+                const offset = (parseInt(page) - 1) * LIMIT + 1
+                const response = await this.$axios.get("/api/items", {
+                    params: {offset: offset, limit: LIMIT}
+                })
+                this.items = response.data ? response.data : []
+            },
+            async getCount() {
+                const response = await this.$axios.get("/api/items/count")
+                this.totalCount = response.data
+            },
+            onEdit(id) {
+                this.$router.push(`/items/${id}/edit`)
+            }
+        },
+        computed: {
+            pageCount() {
+                let number = Math.ceil(this.totalCount / LIMIT);
+                return number
+            }
+        },
+        mounted() {
+            this.getCount()
+            this.getPage()
         }
     }
 </script>

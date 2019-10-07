@@ -15,9 +15,9 @@ import java.util.List;
 @DiscriminatorColumn(name = "DTYPE")
 public abstract class Item extends BaseEntity {
 
-    private String name;
-    private int price;
-    private int stockQuantity;
+    protected String name;
+    protected int price;
+    protected int stockQuantity;
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
