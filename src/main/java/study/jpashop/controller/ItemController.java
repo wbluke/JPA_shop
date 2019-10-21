@@ -2,6 +2,7 @@ package study.jpashop.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.usertype.LoggableUserType;
 import org.springframework.web.bind.annotation.*;
 import study.jpashop.dto.BookRequest;
 import study.jpashop.dto.BookResponse;
@@ -21,6 +22,11 @@ public class ItemController {
     public List<BookResponse> getPage(Long offset, Long limit) {
         log.info("offset={} limit={}", offset, limit);
         return itemService.getPage(offset, limit);
+    }
+
+    @GetMapping("/all")
+    public List<BookResponse> getAllItems() {
+        return itemService.getAll();
     }
 
     @GetMapping("/count")

@@ -6,6 +6,7 @@ import study.jpashop.dto.MemberResponse;
 import study.jpashop.model.Member;
 import study.jpashop.repository.MemberRepository2;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,5 +30,10 @@ public class MemberService {
         return members.stream()
                 .map(MemberAssembler::toDto)
                 .collect(Collectors.toList());
+    }
+
+    public Member findById(Long id) {
+        return memberRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 }

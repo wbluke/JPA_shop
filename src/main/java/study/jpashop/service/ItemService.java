@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import study.jpashop.dto.BookRequest;
 import study.jpashop.dto.BookResponse;
 import study.jpashop.model.item.Book;
+import study.jpashop.model.item.Item;
 import study.jpashop.repository.BookRepository;
 
 import javax.persistence.EntityNotFoundException;
@@ -30,6 +31,11 @@ public class ItemService {
     public BookResponse findById(Long id) {
         Book book = getBook(id);
         return BookAssembler.toResponse(book);
+    }
+
+    public Item findItemById(Long id) {
+        return bookRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 
     private Book getBook(final Long itemId) {

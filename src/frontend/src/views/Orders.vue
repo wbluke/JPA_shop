@@ -13,7 +13,7 @@
 				</v-col>
 				<v-flex my-2>
 					<v-col cols="12" sm="4" md="3">
-						<v-btn fab dark small tile outlined color="light-green lighten-2" class="mr-2">
+						<v-btn v-on:click="submit" fab dark small tile outlined color="light-green lighten-2" class="mr-2">
 							검색
 						</v-btn>
 					</v-col>
@@ -66,7 +66,16 @@
         },
         methods: {
             submit: function () {
-
+                this.$axios.get('/api/orders/search', {
+                    params: {
+                        searchKeyword: this.searchKeyword,
+	                    status: this.getOrderStatus(this.status)
+                    }
+                })
+	                .then(res => res.data)
+	                .then(data => {
+	                    this.orders = data;
+	                })
             },
             getOrderStatus: function (orderStatus) {
                 if (this.statusMenu[0] === orderStatus) {
@@ -76,7 +85,12 @@
             }
         },
         created() {
-
+            this.$axios.get('/api/orders')
+	            .then(res => res.data)
+	            .then(data => {
+	                console.log(data);
+	                this.orders = data;
+	            })
         }
     }
 </script>
